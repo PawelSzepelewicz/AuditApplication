@@ -13,12 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "logs")
+@EqualsAndHashCode(callSuper = true)
 public class Log extends AbstractEntity {
     private String action;
     @ManyToOne(cascade = CascadeType.ALL)

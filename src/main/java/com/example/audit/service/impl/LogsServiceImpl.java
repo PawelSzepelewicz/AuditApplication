@@ -21,24 +21,24 @@ public class LogsServiceImpl implements LogsService {
     private final UsersService usersService;
 
     @Override
-    public void createLog(LogDto logDto) {
-        User subject = usersService.saveNewUserIfNotExist(logDto.getSubjectName());
+    public void createLog(final LogDto logDto) {
+        final User subject = usersService.saveNewUserIfNotExist(logDto.getSubjectName());
         User object;
 
         if (logDto.getObjectName() != null) {
             object = usersService.saveNewUserIfNotExist(logDto.getObjectName());
         } else object = null;
 
-        Log log = new Log();
-        log.setAction(logDto.getAction());
-        log.setSubjectUser(subject);
-        log.setObjectUser(object);
-        log.setActionTime(logDto.getActionTime());
-        repository.save(log);
+        repository.save(new Log(
+                logDto.getAction(),
+                subject,
+                object,
+                logDto.getActionTime()
+                ));
     }
 
     @Override
-    public List<LogInfoDto> getLogsByUserId(Long id) {
+    public List<LogInfoDto> getLogsByUserId(final Long id) {
         return repository.getLogsBySubjectUser(usersService.getById(id)).stream()
                 .map(log -> {
                     String objectName;

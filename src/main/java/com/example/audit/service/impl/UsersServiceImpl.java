@@ -16,12 +16,12 @@ public class UsersServiceImpl implements UsersService {
     private final UsersRepository repository;
 
     @Override
-    public Optional<User> findByUsername(String username) {
+    public Optional<User> findByUsername(final String username) {
         return repository.findUserByUsername(username);
     }
 
     @Override
-    public User saveNewUserIfNotExist(String username) {
+    public User saveNewUserIfNotExist(final String username) {
         final var user = findByUsername(username);
 
         if (user.isEmpty()) {
@@ -35,7 +35,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public User getById(Long id) {
+    public User getById(final Long id) {
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }
