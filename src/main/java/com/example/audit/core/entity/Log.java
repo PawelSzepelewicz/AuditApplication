@@ -27,6 +27,5 @@ public class Log extends AbstractEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "object_user", referencedColumnName = "id")
     private User objectUser;
-    @Column(name = "action_time")
     private LocalDateTime actionTime;
 }

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Column;
 
 @Data
 @Entity
@@ -16,6 +15,5 @@ import javax.persistence.Column;
 @Table(name = "users")
 @EqualsAndHashCode(callSuper = true)
 public class User extends AbstractEntity {
-    @Column(name = "user_name")
     private String username;
 }

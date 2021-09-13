@@ -13,7 +13,7 @@ public class KafkaConsumerServiceImpl implements KafkaConsumerService {
     private final LogsService logsService;
 
     @Override
-    @KafkaListener(topics="spring-audit", groupId="probation-audit", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "spring-audit", groupId = "probation-audit", containerFactory = "kafkaListenerContainerFactory")
     public void consume(final LogDto logDto) {
         logsService.createLog(logDto);
     }

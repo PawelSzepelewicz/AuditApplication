@@ -26,7 +26,9 @@ public class UsersServiceImpl implements UsersService {
 
         if (user.isEmpty()) {
             return repository.save(new User(username));
-        } else return user.get();
+        } else {
+            return user.get();
+        }
     }
 
     @Override
