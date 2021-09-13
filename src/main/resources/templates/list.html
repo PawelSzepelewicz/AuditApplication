@@ -7,19 +7,25 @@
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <script th:inline="javascript">
-        var host = [[${host}]];
+        const userList = [[${userList}]];
     </script>
 </head>
 <body>
+
 <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">№</th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
+        <th scope="col" th:text="#{list.column.name.first}"></th>
+        <th scope="col" th:text="#{list.column.name.second}"></th>
     </tr>
     </thead>
     <tbody id="tbody">
+    <tr th:each="user, state: ${userList}">
+        <th scope="row" th:text="${{state.index + 1}}"/>
+        <td  th:text="${{user.username}}"/>
+        <td><a th:href="@{/logs(id=${{user.id}})}">logs</a></td>
+    </tr>
     </tbody>
 </table>
 
@@ -33,5 +39,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <script src="main.js"></script>
+<script src="logs.js"></script>
 </body>
 </html>

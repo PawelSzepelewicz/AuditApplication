@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LogsRepository extends JpaRepository<Log, Long> {
-    List<Log> getLogsBySubjectUser(User user);
+    List<Log> getLogsBySubjectUserOrderByActionTimeDesc(User user);
 }

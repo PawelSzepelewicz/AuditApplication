@@ -31,12 +31,7 @@ public class LogsServiceImpl implements LogsService {
             object = null;
         }
 
-        repository.save(new Log(
-                logDto.getAction(),
-                subject,
-                object,
-                logDto.getActionTime()
-        ));
+        repository.save(new Log(logDto.getAction(), subject, object, logDto.getActionTime()));
     }
 
     @Override

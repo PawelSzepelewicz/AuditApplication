@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="2021-09-10" author="PawelSzepelewicz">
+
+        <createTable tableName="admin">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <sql dbms="mysql"
+             endDelimiter=";"
+             splitStatements="true"
+             stripComments="true">
+            Insert into admin (ID,USERNAME,PASSWORD) value (1, "Pawel Szepelewicz", "$2a$12$LV62Vehuivc.rtG8e5AO3uGQNv5.tMEZy0NrKEQ2GAja2tK1p1EcO");
+        </sql>
+
+    </changeSet>
+</databaseChangeLog>

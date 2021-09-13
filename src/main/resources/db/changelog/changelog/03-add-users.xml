@@ -9,7 +9,7 @@
              endDelimiter=";"
              splitStatements="true"
              stripComments="true">
-            Insert into users (ID,USER_NAME) value (1, "Pawel Szepelewicz");
+            Insert into users (ID,USERNAME) value (1, "Pawel Szepelewicz");
         </sql>
     </changeSet>
 </databaseChangeLog>
