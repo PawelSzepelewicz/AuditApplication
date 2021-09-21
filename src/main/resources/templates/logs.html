@@ -6,12 +6,8 @@
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-    <script th:inline="javascript">
-        const logsList = [[${logsList}]];
-    </script>
 </head>
 <body>
-
 <div th:each="item, state: ${logsList}" class="container" id="container">
     <p>
         <strong th:text="${{item.actionDay}} + ' ' + ${{item.actionMonth}} + ' at ' + ${{item.actionHour}} + ':' + ${{item.actionMinute}}"/>
@@ -20,7 +16,6 @@
         <mark> <u th:if="${{item.objectName}} != null" th:text="${{item.objectName}}"/> </mark>
     </p>
 </div>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -30,5 +25,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script async src="logs.js"></script>
 </html>

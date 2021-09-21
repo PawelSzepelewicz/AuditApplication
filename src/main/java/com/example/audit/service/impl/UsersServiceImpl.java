@@ -33,7 +33,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<User> getListOfUsers() {
-        return repository.findAllByOrderByIdDesc();
+        return repository.findAllByOrderById();
     }
 
     @Override

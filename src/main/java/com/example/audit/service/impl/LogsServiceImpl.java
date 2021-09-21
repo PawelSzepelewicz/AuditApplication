@@ -36,10 +36,8 @@ public class LogsServiceImpl implements LogsService {
 
     @Override
     public List<LogInfoDto> getLogsByUserId(final Long id) {
-        return repository.getLogsBySubjectUserOrderByActionTimeDesc(usersService.getById(id)).stream()
-                .map(log -> {
-                    String objectName;
-                    objectName = log.getObjectUser() != null ? log.getObjectUser().getUsername() : null;
+        return repository.getUsersLogs(id).stream()
+                .map(log -> { String objectName = log.getObjectUser() != null ? log.getObjectUser().getUsername() : null;
                     return new LogInfoDto(
                             log.getSubjectUser().getUsername(),
                             log.getAction(),
