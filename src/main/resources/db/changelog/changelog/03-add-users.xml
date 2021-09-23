@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="2021-08-27" author="PawelSzepelewicz">
+        <sql dbms="mysql"
+             endDelimiter=";"
+             splitStatements="true"
+             stripComments="true">
+            Insert into users (ID,USERNAME) value (1, "Pawel Szepelewicz");
+        </sql>
+    </changeSet>
+</databaseChangeLog>
