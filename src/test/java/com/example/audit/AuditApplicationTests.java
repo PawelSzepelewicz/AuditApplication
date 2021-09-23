@@ -9,5 +9,4 @@ class AuditApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
