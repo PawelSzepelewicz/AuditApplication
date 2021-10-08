@@ -24,11 +24,7 @@ public class UsersServiceImpl implements UsersService {
     public User saveNewUserIfNotExist(final String username) {
         final var user = findByUsername(username);
 
-        if (user.isEmpty()) {
-            return repository.save(new User(username));
-        } else {
-            return user.get();
-        }
+        return user.orElseGet(() -> repository.save(new User(username)));
     }
 
     @Override
