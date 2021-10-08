@@ -37,16 +37,19 @@ public class LogsServiceImpl implements LogsService {
     @Override
     public List<LogInfoDto> getLogsByUserId(final Long id) {
         return repository.getUsersLogs(id).stream()
-                .map(log -> { String objectName = log.getObjectUser() != null ? log.getObjectUser().getUsername() : null;
-                    return new LogInfoDto(
-                            log.getSubjectUser().getUsername(),
-                            log.getAction(),
-                            objectName,
-                            log.getActionTime().getMonth().name().toLowerCase(),
-                            log.getActionTime().getDayOfMonth(),
-                            log.getActionTime().getHour(),
-                            log.getActionTime().getMinute()
-                    );
-                }).toList();
+                .map(this::createLogInfoDtoFromLog).toList();
+    }
+
+    private LogInfoDto createLogInfoDtoFromLog(Log log) {
+        String objectName = log.getObjectUser() != null ? log.getObjectUser().getUsername() : null;
+        return new LogInfoDto(
+                log.getSubjectUser().getUsername(),
+                log.getAction(),
+                objectName,
+                log.getActionTime().getMonth().name().toLowerCase(),
+                log.getActionTime().getDayOfMonth(),
+                log.getActionTime().getHour(),
+                log.getActionTime().getMinute()
+        );
     }
 }

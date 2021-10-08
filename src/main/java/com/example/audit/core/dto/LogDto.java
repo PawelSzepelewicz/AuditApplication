@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class LogDto {
     private String objectName;
     private String subjectName;
-    private String message;
     private String action;
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
